@@ -21,15 +21,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 //car entering into the screen animation
 gsap.set(".car", { x: "100%" });
-gsap.to(".car", { duration: 1, x: "1%" });
+gsap.to(".car", { duration: 1, x: "0%" });
 gsap.to(".front-tyre", { duration: 1, rotation: -720 });
 gsap.to(".back-tyre", { duration: 1, rotation: -720 });
 
 //braking animation when car stops
 var mydiv = new TimelineMax();
 mydiv
-  .fromTo(".car", 1, { y: 0 }, { y: 5 })
-  .to(".car", 1, { y: 0, ease: "elastic.out( 1, 0.3)" });
+  .fromTo(".side-car", 1, { y: 0 }, { y: 3 })
+  .to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
 
 //car fading effects  
 gsap.to('.car',{
@@ -166,5 +166,15 @@ gsap.to('.car14', {
         scrub:1,
     },
     opacity:1
+})
+
+gsap.to('.circle', {
+    scrollTrigger:{
+        trigger: '.car',
+        start: "top -11000",
+        toggleAction: 'restart pause reverse pause',
+        scrub:1,
+    },
+    display: "block"
 })
 
