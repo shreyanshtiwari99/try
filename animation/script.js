@@ -2,39 +2,52 @@
 // scaling animation of the car
 $(document).ready(function () {
 
-//car entering into the screen animation
-gsap.set(".car", { x: "100%" });
-gsap.to(".car", { duration: 1, x: "0%" });
-gsap.to(".front-tyre", { duration: 1, rotation: -720 });
-gsap.to(".back-tyre", { duration: 1, rotation: -720 });
+  // When we begin, assume no images are loaded.
+  var imagesLoaded = 0
+  // Count the total number of images on the page when the page has loaded.
+  var totalImages = $("img").length
 
-//braking animation when car stops
-var mydiv = new TimelineMax();
-mydiv
-  .fromTo(".side-car", 1, { y: 0 }, { y: 3 })
-  .to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
+  // After an image is loaded, add to the count, and if that count equals the
+  // total number of images, fire the allImagesLoaded() function.
+  $("img").on("load", function (event) {
+    imagesLoaded++
+    if (imagesLoaded == totalImages) {
+      allImagesLoaded()
+    }
+  })
 
-  $(window).on("scroll", function () {
-    let lock = $(this).scrollTop();
-    let positionFactor = lock * 0.3 < 40 ? 0 : lock * 0.3;
-    let position = positionFactor >= 78.4000015258789 ? 78.4000015258789 : positionFactor;
-    let lockPos = lock * 0.0015;
-    let scaleFactor = lockPos < 1 ? 1 : lockPos >= 3 ? 3 : lockPos;
-    $(".car").css("transform", "scale(" + scaleFactor + ")");
+  function allImagesLoaded() {
+      
+    //GSAP animations start
+    gsap.registerPlugin(ScrollTrigger);
 
-    
-  });
+    //car entering into the screen animation
+    gsap.set(".car", { x: "100%" });
+    gsap.to(".car", { duration: 1, x: "0%" });
+    gsap.to(".front-tyre", { duration: 1, rotation: -720 });
+    gsap.to(".back-tyre", { duration: 1, rotation: -720 });
+
+    //braking animation when car stops
+    var mydiv = new TimelineMax();
+    mydiv
+    .fromTo(".side-car", 1, { y: 0 }, { y: 3 })
+    .to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
+
+    $(window).on("scroll", function () {
+        let lock = $(this).scrollTop();
+        let positionFactor = lock * 0.3 < 40 ? 0 : lock * 0.3;
+        let position = positionFactor >= 78.4000015258789 ? 78.4000015258789 : positionFactor;
+        let lockPos = lock * 0.0015;
+        let scaleFactor = lockPos < 1 ? 1 : lockPos >= 3 ? 3 : lockPos;
+        $(".car").css("transform", "scale(" + scaleFactor + ")");
+    });
+  }
 });
 
 // on refresh make scroll bar initial position 0
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
-
-//GSAP animations start
-gsap.registerPlugin(ScrollTrigger);
-
-
 
 //car fading effects  
 gsap.to('.car',{
@@ -51,7 +64,7 @@ gsap.to('.car1', {
         trigger: '.car',
         start: "bottom -2200",
         toggleAction: 'restart pause reverse pause',
-        scrub: 4,
+        scrub: 1,
     },
     opacity:1
 })
@@ -60,7 +73,7 @@ gsap.to('.car2', {
         trigger: '.car',
         start: "bottom -3000",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2,
     },
     opacity:1
 })
@@ -69,7 +82,7 @@ gsap.to('.car3', {
         trigger: '.car',
         start: "bottom -3800",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2,
       },
     opacity:1
 })
@@ -78,7 +91,7 @@ gsap.to('.car4', {
         trigger: '.car',
         start: "bottom -4600",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2,
     },
     opacity:1
 })
@@ -87,7 +100,7 @@ gsap.to('.car5', {
         trigger: '.car',
         start: "bottom -5400",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2,
     },
     opacity:1
 })
@@ -96,7 +109,7 @@ gsap.to('.car6', {
         trigger: '.car',
         start: "bottom -6200",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2,
     },
     opacity:1
 })
@@ -172,7 +185,7 @@ gsap.to('.car14', {
     },
     opacity:1
 })
-
+//circle sensors animation
 gsap.to('.circle', {
     scrollTrigger:{
         trigger: '.car',
