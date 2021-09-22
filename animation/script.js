@@ -1,23 +1,6 @@
 
 // scaling animation of the car
 $(document).ready(function () {
-  $(window).on("scroll", function () {
-    let lock = $(this).scrollTop();
-    let positionFactor = lock * 0.3 < 40 ? 0 : lock * 0.3;
-    let position = positionFactor >= 78.4000015258789 ? 78.4000015258789 : positionFactor;
-    let lockPos = lock * 0.0015;
-    let scaleFactor = lockPos < 1 ? 1 : lockPos >= 3 ? 3 : lockPos;
-    $(".car").css("transform", "scale(" + scaleFactor + ")");
-  });
-});
-
-// on refresh make scroll bar initial position 0
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
-
-//GSAP animations start
-gsap.registerPlugin(ScrollTrigger);
 
 //car entering into the screen animation
 gsap.set(".car", { x: "100%" });
@@ -30,6 +13,28 @@ var mydiv = new TimelineMax();
 mydiv
   .fromTo(".side-car", 1, { y: 0 }, { y: 3 })
   .to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
+
+  $(window).on("scroll", function () {
+    let lock = $(this).scrollTop();
+    let positionFactor = lock * 0.3 < 40 ? 0 : lock * 0.3;
+    let position = positionFactor >= 78.4000015258789 ? 78.4000015258789 : positionFactor;
+    let lockPos = lock * 0.0015;
+    let scaleFactor = lockPos < 1 ? 1 : lockPos >= 3 ? 3 : lockPos;
+    $(".car").css("transform", "scale(" + scaleFactor + ")");
+
+    
+  });
+});
+
+// on refresh make scroll bar initial position 0
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+//GSAP animations start
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 //car fading effects  
 gsap.to('.car',{
@@ -46,7 +51,7 @@ gsap.to('.car1', {
         trigger: '.car',
         start: "bottom -2200",
         toggleAction: 'restart pause reverse pause',
-        scrub: 2,
+        scrub: 4,
     },
     opacity:1
 })
