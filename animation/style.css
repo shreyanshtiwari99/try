@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  height: 12500px;
+}
+.car1, .car2, .car3, .car4, .car5, .car6, .car7, .car8, .car9, .car10, .car11, .car12, .car13, .car14, .car15, .car16  {
+  display: block;
+  position: fixed;
+  top: 5.5%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  opacity: 0
+}
+.car {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 20%;
+  right: 0;
+  bottom: 0;
+  height: 200%;
+  width: 200%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25.2%;
+  max-height: 7.2%;
+}
+.side-car {
+  position: absolute;
+  top: 0;
+  max-width: 100%;
+}
+.back-tyre {
+  position: absolute;
+  top: 5.9rem;
+  left: 12.5rem;
+  max-width: 50%;
+}
+.front-tyre {
+  position: absolute;
+  top: 5.9rem;
+  left: -1.3rem;
+  max-width: 50%;
+}
