@@ -77,7 +77,6 @@ body::-webkit-scrollbar-track {
 	display: none;
   animation: scaleIn 3s  cubic-bezier(.36, .11, .89, .32);
 	animation-fill-mode: forwards !important;
-  animation-iteration-count: infinite;
 	background-color: #208e9e;
   }
 
