@@ -78,6 +78,7 @@ body::-webkit-scrollbar-track {
   animation: scaleIn 3s  cubic-bezier(.36, .11, .89, .32);
 	animation-fill-mode: forwards !important;
 	background-color: #208e9e;
+  animation-iteration-count: infinite;
   }
 
 .circle1 {
@@ -100,7 +101,7 @@ body::-webkit-scrollbar-track {
   right: 19rem;
 }
 
-  @keyframes scaleIn {
+@keyframes scaleIn {
     0% {
       transform: scale(.5, .5);
       opacity: 1;
@@ -121,4 +122,44 @@ body::-webkit-scrollbar-track {
       transform: scale(15, 15);
       opacity: 0.1;
     }
+}
+
+
+
+
+/* media queries for 720px */
+@media (max-width: 1280px){
+
+  .back-tyre {
+    position: absolute;
+    top: 5rem;
+    left: 10.6rem;
+    max-width: 50%;
   }
+  .front-tyre {
+    position: absolute;
+    top: 5rem;
+    left: -1.1rem;
+    max-width: 50%;
+  }
+  .circle1 {
+    top: 11rem;
+    left: 16rem;
+ }
+
+ .circle2{
+  top: 11rem;
+  right: 16rem;
+}
+
+  .circle3 {
+    bottom: 15rem;
+    left: 16rem;
+  }
+
+  .circle4 {
+    bottom: 15rem;
+    right: 16rem;
+  }
+}
+

@@ -17,20 +17,18 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
 
-    //GSAP animations start
-    gsap.registerPlugin(ScrollTrigger);
-
-    //car entering into the screen animation
-    gsap.set(".car", { x: "100%" });
-    gsap.to(".car", { duration: 1, x: "0%" });
-    gsap.to(".front-tyre", { duration: 1, rotation: -720 });
-    gsap.to(".back-tyre", { duration: 1, rotation: -720 });
-
-    //braking animation when car stops
-    var mydiv = new TimelineMax();
-    mydiv
-    .fromTo(".side-car", 1, { y: 0 }, { y: 3 })
-    .to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
+//GSAP animations start
+gsap.registerPlugin(ScrollTrigger);
+//car entering into the screen animation
+gsap.set(".car", { x: "100%" });
+gsap.to(".car", { duration: 1, x: "0%" });
+gsap.to(".front-tyre", { duration: 1, rotation: -720 });
+gsap.to(".back-tyre", { duration: 1, rotation: -720 });
+//braking animation when car stops
+var mydiv = new TimelineMax();
+mydiv
+.fromTo(".side-car", 1, { y: 0 }, { y: 3 })
+.to(".side-car", 1.5, { y: 0, ease: "elastic.out( 1, 0.3)" });
 
 
 //car fading effects  
@@ -39,16 +37,16 @@ gsap.to('.car',{
     trigger: '.car',
     start: "bottom -2199",
     toggleAction: 'restart pause reverse pause',
-    scrub: 1,
+    scrub:2
 },
-opacity:0
+    opacity:0
 })
 gsap.to('.car1', {
     scrollTrigger:{
         trigger: '.car',
         start: "bottom -2200",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: 2
     },
     opacity:1
 })
@@ -97,12 +95,14 @@ gsap.to('.car6', {
     },
     opacity:1
 })
+//rotation starts
 gsap.to('.car7', {
     scrollTrigger:{
         trigger: '.car',
         start: "top -6800",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
+        
     },
     opacity:1
 })
@@ -111,7 +111,8 @@ gsap.to('.car8', {
         trigger: '.car',
         start: "top -7400",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
+        
     },
     opacity:1
 })
@@ -120,7 +121,8 @@ gsap.to('.car9', {
         trigger: '.car',
         start: "top -8000",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
+        
     },
     opacity:1
 })
@@ -129,7 +131,7 @@ gsap.to('.car10', {
         trigger: '.car',
         start: "top -8600",
         toggleAction: 'restart pause reverse pause',
-        scrub:1,
+        scrub:true,
     },
     opacity:1
 })
@@ -138,7 +140,7 @@ gsap.to('.car11', {
         trigger: '.car',
         start: "top -9200",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
     },
     opacity:1
 })
@@ -147,7 +149,8 @@ gsap.to('.car12', {
         trigger: '.car',
         start: "top -9800",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
+        
     },
     opacity:1
 })
@@ -156,7 +159,8 @@ gsap.to('.car13', {
         trigger: '.car',
         start: "top -10400",
         toggleAction: 'restart pause reverse pause',
-        scrub: 1,
+        scrub: true
+        
     },
     opacity:1
 })
@@ -165,9 +169,11 @@ gsap.to('.car14', {
         trigger: '.car',
         start: "top -11000",
         toggleAction: 'restart pause reverse pause',
-        scrub:1,
-    },
-    opacity:1
+        scrub: true
+
+        },
+    opacity:1,
+   
 })
 //circle sensor animation
 gsap.to('.circle', {
@@ -175,7 +181,7 @@ gsap.to('.circle', {
         trigger: '.car',
         start: "top -11000",
         toggleAction: 'restart pause reverse pause',
-        scrub:1,
+        scrub:true,
     },
     display: "block"
 })
